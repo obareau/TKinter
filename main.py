@@ -24,7 +24,7 @@ class MyApp:
         # label["font"] = ("Courier")
         
         """ configure function is quicker when ther's a lot of params to change in a row """
-        label.configure(text = "New Label Text :-)", font=("Helvetica", 30))
+        # label.configure(text = "New Label Text :-)", font=("Helvetica", 30))
         
 """ let's create root """
 root = Tk()

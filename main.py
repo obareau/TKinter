@@ -26,9 +26,16 @@ class MyApp:
         """ configure function is quicker when ther's a lot of params to change in a row """
         label.configure(text = "New Label Text :-)", font=("Helvetica", 30))
         
-# ! let's create root """
+        entry_text = StringVar()
+        entry = Entry(root, textvariable=entry_text )
+        entry.pack() # packing goes top to botton so this widget will be below the first one
+        # ! We will use get & set later !
+        
+        label["textvariable"] = entry_text
+        
+# ! let's create root
 root = Tk()
-# ! Let's create an instance of MyApp called root"""
+# ! Let's create an instance of MyApp called root
 MyApp(root)
 
 

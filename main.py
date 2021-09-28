@@ -19,7 +19,7 @@ class MyApp:
         """ let's make this labal appear for real """
         label.pack()
         
-        """ Dictionary syntax """"
+        """ Dictionary syntax """
         # label["text"] = "New Label Text"
         # label["font"] = ("Courier")
         

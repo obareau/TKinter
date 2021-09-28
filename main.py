@@ -37,7 +37,7 @@ class MyApp:
         button = Button(root,text="Button text", command=self.press_button)
         button.pack()
     def press_button(self):
-        # print("Button pressed") # Just a test 
+        print("Button pressed") # Just a test 
         text = self.entry_text.get()
         self.label_text.set(text)
         

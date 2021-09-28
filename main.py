@@ -34,7 +34,7 @@ class MyApp:
         # ! We will use get & set later !
         
         # label["textvariable"] = entry_text
-        button = Button(root,text="Button text", command=self.press_button)
+        button = Button(root,text="Submit", command=self.press_button)
         button.pack()
     def press_button(self):
         print("Button pressed") # Just a test 

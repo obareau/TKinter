@@ -36,10 +36,25 @@ class MyApp:
         # label["textvariable"] = entry_text
         button = Button(root,text="Submit", command=self.press_button)
         button.pack()
+        
+        self.list_items_strings = ["hey", "hi", "hello", "greetings"] # let's make a field
+        list_items = StringVar(value=self.list_items_strings)
+        listbox = Listbox(root, listvariable=list_items)
+        listbox.pack()
+        listbox["height"] = 3 #listbox by default contains 10 rows
+        listbox.bind("<<ListboxSelect>>", lambda s: self.select_item(listbox.curselection())) # ! We have a tuple
+        
     def press_button(self):
         print("Button pressed") # Just a test 
         text = self.entry_text.get()
         self.label_text.set(text)
+        
+    # ! Another instance method
+    def select_item(self, index):
+        selected_item =  self.list_items_strings[index[0]] # ! Tuple here so we need to add a zero
+        print(selected_item)
+        
+        
         
         
         

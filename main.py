@@ -3,7 +3,7 @@ from tkinter import *
 class MyApp:
     
     """Initialiser"""
-    def __init__(self, root):
+    def __init__(self, root,):
         
         root.title("My app")
 
@@ -14,9 +14,9 @@ class MyApp:
         root.maxsize(800,600)
         
         """ We put the window first then parameters """
-        label = Label(root, text="Some label text")
+        label = Label(root, text="Some label text", bg="lightblue")
         
-        """ let's make this labal appear for real """
+        """ let's make this label appear for real """
         label.pack()
         
         """ Dictionary syntax """

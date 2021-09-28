@@ -13,8 +13,10 @@ class MyApp:
         """ We can not make it any bigger than that """
         root.maxsize(800,600)
         
+        self.label_text = StringVar()
+        
         """ We put the window first then parameters """
-        label = Label(root, text="Some label text", bg="lightblue")
+        label = Label(root, text="Some label text", textvariable=self.label_text, bg="lightblue")
         
         """ let's make this label appear for real """
         label.pack()
@@ -26,12 +28,20 @@ class MyApp:
         """ configure function is quicker when ther's a lot of params to change in a row """
         label.configure(text = "New Label Text :-)", font=("Helvetica", 30))
         
-        entry_text = StringVar()
-        entry = Entry(root, textvariable=entry_text )
+        self.entry_text = StringVar()
+        entry = Entry(root, textvariable=self.entry_text )
         entry.pack() # packing goes top to botton so this widget will be below the first one
         # ! We will use get & set later !
         
-        label["textvariable"] = entry_text
+        # label["textvariable"] = entry_text
+        button = Button(root,text="Button text", command=self.press_button)
+        button.pack()
+    def press_button(self):
+        # print("Button pressed") # Just a test 
+        text = self.entry_text.get()
+        self.label_text.set(text)
+        
+        
         
 # ! let's create root
 root = Tk()

@@ -49,10 +49,10 @@ class MyApp:
         text = self.entry_text.get()
         self.label_text.set(text)
         
-    # ! Another instance method
+        # ! Instance method for listbox
     def select_item(self, index):
         selected_item =  self.list_items_strings[index[0]] # ! Tuple here so we need to add a zero
-        print(selected_item)
+        print(selected_item) # Just a test
         
         
         

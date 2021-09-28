@@ -19,16 +19,16 @@ class MyApp:
         """ let's make this label appear for real """
         label.pack()
         
-        """ Dictionary syntax """
+        # ? Dictionary syntax which of both are better, this one ?
         # label["text"] = "New Label Text"
         # label["font"] = ("Courier")
-        
+        # ? Or this one ?
         """ configure function is quicker when ther's a lot of params to change in a row """
         label.configure(text = "New Label Text :-)", font=("Helvetica", 30))
         
-""" let's create root """
+# ! let's create root """
 root = Tk()
-""" Let's create an instance of MyApp called root"""
+# ! Let's create an instance of MyApp called root"""
 MyApp(root)
 
 

@@ -23,6 +23,14 @@ class TodoListApp:
             ToDoItem("Groceries", "Buy bread, milk, eggs"),
         ]
 
+        # We extract x.name of ALL ToDoitem one by one and we put them to the list
+        self.to_do_names = StringVar(value=list(map(lambda x: x.name, self.to_do_items))) 
+        
+       
+        items_list = Listbox(root, listvariable=self.to_do_names)
+        items_list.bind("<<ListboxSelect>>", lambda s: self.select_item(
+            items_list.curselection()))  # ! We have a tuple
+
         self.label_text = StringVar()
         label = Label(frame, text="Some label text",
                       textvariable=self.label_text, bg="lightblue")
@@ -31,35 +39,22 @@ class TodoListApp:
 
         self.entry_text = StringVar()
         entry = Entry(frame, textvariable=self.entry_text)
-        # ! We will use get & set later !
-        # entry.grid(column=3, row=1)
-    
-     
+
         button = Button(frame, text="Submit", command=self.press_button)
         # button.grid(column=1, row=2, sticky=(S, E , W))
         # button.place(x=0, y=0)
         # button.configure(width=10, height=3, font=("Helvetica", 30)) # Based on Character typographic size 
         
-        self.list_items_strings = ["hey", "hi",
-                                   "hello", "greetings"]  # let's make a field
-        list_items = StringVar(value=self.list_items_strings)
-        listbox = Listbox(root, listvariable=list_items)
-        # listbox.grid(column=2, row=2)
-        listbox["height"] = 3  # listbox by default contains 10 rows
-        listbox.bind("<<ListboxSelect>>", lambda s: self.select_item(
-            listbox.curselection()))  # ! We have a tuple
-
     def press_button(self):
         print("Button pressed")  # Just a test
         text = self.entry_text.get()
         self.label_text.set(text)
 
-        # ! Instance method for listbox
+    
     def select_item(self, index):
-        # ! Tuple here so we need to add a zero
-        selected_item = self.list_items_strings[index[0]]
-        print(selected_item) 
-        # print(self.list_items_strings[index[0]])# Just a test
+        # selected_item = self.to_do_names[index[0]]
+        # print(selected_item) 
+        print ("item selected")
 
 
 # ! let's create root

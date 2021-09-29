@@ -1,31 +1,30 @@
 from tkinter import *
 import tkinter as tk
-class TodoListApp:
+class MyApp:
 
     def __init__(self, root,):
 
-        root.title("To Do List")
-     
-        frame = Frame(root, borderwidth=2, relief="sunken")
-        frame.grid(column=1, row=1, sticky=(N, E, S, W))
-        root.columnconfigure(1, weight=1)
-        root.rowconfigure(1, weight=1)
+        root.title("My app")
+        root.geometry("500x400")
+        root.maxsize(800,600)
         
+        frame = Frame(root, width=200, height=100, borderwidth=2, relief="sunken")
+        frame.place(x=0, y=0)
         
 
         self.label_text = StringVar()
-        label = Label(frame, text="Some label text",
+        label = Label(root, text="Some label text",
                       textvariable=self.label_text, bg="lightblue")
         # label.grid(column=1, row=1)
         label.configure(text="New Label Text :-)", font=("Helvetica", 30))
 
         self.entry_text = StringVar()
-        entry = Entry(frame, textvariable=self.entry_text)
+        entry = Entry(root, textvariable=self.entry_text)
         # ! We will use get & set later !
         # entry.grid(column=3, row=1)
     
      
-        button = Button(frame, text="Submit", command=self.press_button)
+        button = Button(root, text="Submit", command=self.press_button)
         # button.grid(column=1, row=2, sticky=(S, E , W))
         # button.place(x=0, y=0)
         # button.configure(width=10, height=3, font=("Helvetica", 30)) # Based on Character typographic size 
@@ -55,5 +54,5 @@ class TodoListApp:
 # ! let's create root
 root = Tk()
 # ! Let's create an instance of MyApp called root
-TodoListApp(root)
+MyApp(root)
 root.mainloop()

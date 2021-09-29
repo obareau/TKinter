@@ -1,5 +1,11 @@
 from tkinter import *
 import tkinter as tk
+
+class ToDoItem:
+    
+    def __init__(self,name, description):
+        self.name = name
+        self.description = description
 class TodoListApp:
 
     def __init__(self, root,):
@@ -11,7 +17,11 @@ class TodoListApp:
         root.columnconfigure(1, weight=1)
         root.rowconfigure(1, weight=1)
         
-        
+        self.to_do_items = [
+            ToDoItem("Workout", "Push ups, pull ups, squat"),
+            ToDoItem("House work", "Clean kitchen, sweep floors, do laundry"),
+            ToDoItem("Groceries", "Buy bread, milk, eggs"),
+        ]
 
         self.label_text = StringVar()
         label = Label(frame, text="Some label text",

@@ -10,11 +10,11 @@ class MyApp:
 
         root.title("My app")
 
-        # """ let's define our window """
-        # root.geometry("500x400")
+        """ let's define our window """
+        root.geometry("500x400")
 
-        # """ We can not make it any bigger than that """
-        # root.maxsize(800,600)
+        """ We can not make it any bigger than that """
+        root.maxsize(800,600)
 
         self.label_text = StringVar()
 
@@ -23,7 +23,7 @@ class MyApp:
                       textvariable=self.label_text, bg="lightblue")
 
         """ let's make this label appear for real """
-        label.pack(side=tk.LEFT, padx=10, pady=5, )
+        # label.pack(side=tk.LEFT, padx=10, pady=5, )
         """Widgets are aligned left to right with a padding between it 
         keep in mind all widhets are glued together"""
 
@@ -37,18 +37,18 @@ class MyApp:
         self.entry_text = StringVar()
         entry = Entry(root, textvariable=self.entry_text)
         # packing goes top to botton so this widget will be below the first one
-        entry.pack(side=tk.LEFT)
+        # entry.pack(side=tk.LEFT)
         # ! We will use get & set later !
-
+        entry.place(x = 100, y = 50)
         # label["textvariable"] = entry_text
         button = Button(root, text="Submit", command=self.press_button)
-        button.pack(side=tk.LEFT)
+        # button.pack(side=tk.LEFT)
 
         self.list_items_strings = ["hey", "hi",
                                    "hello", "greetings"]  # let's make a field
         list_items = StringVar(value=self.list_items_strings)
         listbox = Listbox(root, listvariable=list_items)
-        listbox.pack(side=tk.LEFT, padx=40, pady=20, )
+        # listbox.pack(side=tk.LEFT, padx=40, pady=20, )
         listbox["height"] = 3  # listbox by default contains 10 rows
         listbox.bind("<<ListboxSelect>>", lambda s: self.select_item(
             listbox.curselection()))  # ! We have a tuple
